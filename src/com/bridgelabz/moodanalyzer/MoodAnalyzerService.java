@@ -17,7 +17,7 @@ public class MoodAnalyzerService {
 		return analyseMood(messsage);
 	}
 
-	public Object analyseMood(String message) {
+	public Object analyseMood(String message) throws MoodAnalyzeException {
 		try {
 
 			if(message.contains("sad"))
@@ -29,7 +29,7 @@ public class MoodAnalyzerService {
 				return "happy";
 			}
 		}catch(NullPointerException e){
-			return "happy";
+			throw new MoodAnalyzeException("message cannot be null");
 		}
 	}
 }

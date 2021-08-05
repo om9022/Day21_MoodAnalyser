@@ -3,7 +3,7 @@ package com.bridgelabz.moodanalyzer;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
+import com.bridgelabz.moodanalyzer.MoodAnalyzeException;
 import com.bridgelabz.moodanalyzer.MoodAnalyzerService;
 
 public class MoodAnalyserTest {
@@ -41,7 +41,14 @@ public class MoodAnalyserTest {
 	@Test
 	public void givenMessageInConstructor_WhenNull_ShouldReturnHappy()
 	{
-		MoodAnalyzerService moodAnalyse = new MoodAnalyzerService(null);		
-		assertEquals("happy",moodAnalyse.analyseMood());
+		try 
+		{
+			MoodAnalyzerService moodAnalyse = new MoodAnalyzerService(null);		
+			assertEquals("happy",moodAnalyse.analyseMood());			
+		} 
+		catch (MoodAnalyzeException e) 
+		{
+			assertEquals("message cannot be null", e.getMessage());
+		}
 	}
 }
