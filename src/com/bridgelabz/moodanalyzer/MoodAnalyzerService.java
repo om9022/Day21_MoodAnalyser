@@ -13,7 +13,11 @@ public class MoodAnalyzerService {
 		this.messsage = message;
 	}
 	
-	public String analyseMood(String message) {
+	public Object analyseMood() {
+		return analyseMood(messsage);
+	}
+	
+	public Object analyseMood(String message) {
 		if(message.contains("sad"))
 		{
 			return "sad";
