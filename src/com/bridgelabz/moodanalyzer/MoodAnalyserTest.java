@@ -29,6 +29,7 @@ public class MoodAnalyserTest {
 		assertEquals("sad",moodAnalyse.analyseMood());		
 	}
 	
+//	check for happy mood and message passed through constructor
 	@Test
 	public void givenMessageInConstructor_WhenHappy_ShouldReturnHappy() {
 		MoodAnalyzerService moodAnalyse = new MoodAnalyzerService("i am in happy mood");		
