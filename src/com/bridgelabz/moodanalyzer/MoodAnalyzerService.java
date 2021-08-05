@@ -1,5 +1,7 @@
 package com.bridgelabz.moodanalyzer;
 
+import com.bridgelabz.moodanalyzer.MoodAnalyzeException.ExceptionType;
+
 public class MoodAnalyzerService {
 
 	public String messsage ;
@@ -19,6 +21,9 @@ public class MoodAnalyzerService {
 
 	public Object analyseMood(String message) throws MoodAnalyzeException {
 		try {
+			if(message.length()== 0) {
+				throw new MoodAnalyzeException(ExceptionType.ENTERED_EMPTY, "message cannot be empty");
+			}
 
 			if(message.contains("sad"))
 			{
@@ -29,7 +34,7 @@ public class MoodAnalyzerService {
 				return "happy";
 			}
 		}catch(NullPointerException e){
-			throw new MoodAnalyzeException("message cannot be null");
+			throw new MoodAnalyzeException(ExceptionType.ENTERED_NULL, "message cannot be null");
 		}
 	}
 }
