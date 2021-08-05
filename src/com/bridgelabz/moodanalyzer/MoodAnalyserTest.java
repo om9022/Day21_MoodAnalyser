@@ -28,4 +28,10 @@ public class MoodAnalyserTest {
 		MoodAnalyzerService moodAnalyse = new MoodAnalyzerService("I am in Sad mood");
 		assertEquals("sad",moodAnalyse.analyseMood());		
 	}
+	
+	@Test
+	public void givenMessageInConstructor_WhenHappy_ShouldReturnHappy() {
+		MoodAnalyzerService moodAnalyse = new MoodAnalyzerService("i am in happy mood");		
+		assertEquals("happy",moodAnalyse.analyseMood());
+	}
 }
